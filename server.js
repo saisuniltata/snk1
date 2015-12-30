@@ -2,7 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-
+var app = express();
 
 /**
  *  Define the sample application.
@@ -113,7 +113,8 @@ var SampleApp = function() {
      */
     self.initializeServer = function() {
         self.createRoutes();
-        self.app = express.createServer();
+        
+        self.app = require('http').createServer(app);
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
@@ -156,4 +157,15 @@ var SampleApp = function() {
 var zapp = new SampleApp();
 zapp.initialize();
 zapp.start();
+
+/*Code starts here*/
+server = require('http').createServer(app);
+io = require('socket.io').listen(server);
+server.listen(process.env.PORT||3000);
+app.get('/',function(req,res){
+  res.sendfile(__dirname+'/index.html');  
+});
+
+
+
 

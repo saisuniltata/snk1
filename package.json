@@ -1,9 +1,9 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Chat-IO",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "Chat Application",
   "keywords": [
-    "OpenShift",
+    "OpenShift",  
     "Node.js",
     "application",
     "openshift"
@@ -25,6 +25,7 @@
   },
 
   "dependencies": {
+    "socket.io" : "*",
     "express": "~3.4.4"
   },
   "devDependencies": {},
