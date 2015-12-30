@@ -1,9 +1,17 @@
+var express = require('express');
+app = express();
+
 var http = require('http');
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
     port = process.env.OPENSHIFT_NODEJS_PORT || '8080';
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(port, ip);
-console.log('Server running at http://'+ip+':'+port+'/');
+
+
+
+server = require('http').createServer(app);
+io = require('socket.io').listen(server);
+server.listen(port);
+
+app.get('/',function(req,res){
+    res.sendfile(__dirname+'/index.html');
+});
