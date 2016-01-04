@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var port = process.env.OPENSHIFT_NODEJS_PORT||8080;
 var ip = process.env.OPENSHIFT_NODEJS_IP||'127.0.0.1';
 app = express(),
@@ -7,12 +8,14 @@ io = require('socket.io').listen(server);
 
 server.listen(port,ip);
 
-app.get('/',function(req,res,err){
-    if(err)
+app.get('/',function(req,res){
+    if(fs.existsSync(__dirname + '/index.html'))
     {
-        throw err;
+        res.send('Sucess');
     }
-   res.send(__dirname + '/index.html');
+    else {
+   res.send('failure');
+   }
 });
 
 io.sockets.on('connection',function(data){
