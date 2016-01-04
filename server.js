@@ -9,13 +9,7 @@ io = require('socket.io').listen(server);
 server.listen(port,ip);
 
 app.get('/',function(req,res){
-    if(fs.existsSync(__dirname + '/index.html'))
-    {
-        res.send('Sucess');
-    }
-    else {
-   res.send('failure');
-   }
+    res.sendFile(__dirname + '/index.html');
 });
 
 io.sockets.on('connection',function(data){
