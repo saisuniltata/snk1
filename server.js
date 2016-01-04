@@ -11,8 +11,6 @@ server.listen(port,ip);
 
 app.get('/',function(req,res){
     res.sendFile(path.join(__dirname + '/index.html'));
+    console.log(path.join(__dirname + '/index.html');
 });
 
-io.sockets.on('connection',function(data){
-    io.sockets.emit('new message',{msg:data})
-})
