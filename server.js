@@ -8,7 +8,9 @@ io = require('socket.io').listen(server);
 server.listen(port,ip);
 
 app.get('/',function(request,response){
-    request.sendFile(__dirname + '/index.html');
+     response.writeHead(200, {'Content-Type': 'text/plain'});
+  response.end('Hello World\n')
+   // request.sendFile(__dirname + '/index.html');
 });
 
 io.sockets.on('connection',function(data){
