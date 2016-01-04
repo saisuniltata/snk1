@@ -77,24 +77,6 @@ app.get('/',function(req,res){
             </div>
         </div>  
     </div>
-    <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-    $(function(){
-        var socket = io.connect();
-        var $messageForm = $('#messageForm');
-        var $message = $('#message');
-        var $chat = $('#chatWindow');
-        $messageForm.submit(function(e){
-            e.preventDefault();
-            socket.emit('send message', $message.val());
-            $message.val('');
-        })
-        socket.on('new message', function(data){
-            $chat.append(data.msg+'<br/>');
-        });
-    });
-    </script>
 </body>
 <html>');
 });
