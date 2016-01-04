@@ -8,7 +8,7 @@ io = require('socket.io').listen(server);
 server.listen(port,ip);
 
 app.get('/',function(request,response){
-   response.send('eggl');
+   response.sendFile('/index.html');
 });
 
 io.sockets.on('connection',function(data){
