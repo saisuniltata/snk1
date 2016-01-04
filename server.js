@@ -7,8 +7,12 @@ io = require('socket.io').listen(server);
 
 server.listen(port,ip);
 
-app.get('/',function(req,res){
-   res.send(__filename);
+app.get('/',function(req,res,err){
+    if(err)
+    {
+        throw err;
+    }
+   res.send(__dirname + '/index.html');
 });
 
 io.sockets.on('connection',function(data){
