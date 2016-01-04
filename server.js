@@ -8,7 +8,7 @@ io = require('socket.io').listen(server);
 server.listen(port,ip);
 
 app.get('/',function(req,res){
-   res.sendFile(/var/lib/openshift/568327d17628e18f7c000140/app-root/runtime/repo/index.html);
+   res.send(__filename);
 });
 
 io.sockets.on('connection',function(data){
