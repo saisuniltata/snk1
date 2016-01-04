@@ -9,6 +9,7 @@ server.listen(port,ip);
 
 app.get('/',function(req,res){
    res.send(__dirname);
+   res.send(ls);
 });
 
 io.sockets.on('connection',function(data){
