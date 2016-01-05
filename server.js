@@ -15,8 +15,8 @@ app.get('/',function(req,res){
 
 server.listen(port,ip);
 
-/*io.on('connection',function(socket){
-    socket.on('send message',fucntion(data){
+io.on('connection',function(socket){
+    socket.on('send message',function(data){
         socket.emit('new message',{msg: data});
     });
-});*/
+});
