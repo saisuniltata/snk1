@@ -10,5 +10,5 @@ io = require('socket.io').listen(server);
 server.listen(port,ip);
 
 app.get('/',function(req,res){    
-    res.sendFile(__dirname +'/index1.html');
+    res.sendFile(__dirname +'/1.txt');
 });
