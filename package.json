@@ -26,7 +26,7 @@
 
   "dependencies": {
     "socket.io" : "*",
-    "express": ">=4"
+    "express": ">=3.4.4"
   },
   "devDependencies": {},
   "bundleDependencies": [],
