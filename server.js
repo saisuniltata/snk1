@@ -17,9 +17,6 @@ server.listen(port,ip);
 
 io.on('connection',function(socket){
     socket.on('send message',function(data){
-        io.emit('new message',{msg:data});
-          
-    });
-        
-    });
+        io.emit('new message',{msg:data});  
+    });     
 });
