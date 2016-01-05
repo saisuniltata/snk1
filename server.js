@@ -7,8 +7,10 @@ app = express(),
 server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
-server.listen(port,ip);
+
 
 app.get('/',function(req,res){    
-    res.sendFile(__dirname +'/client/1.txt');
+    res.sendFile(__dirname +'/client/index.html');
 });
+
+server.listen(port,ip);
