@@ -17,12 +17,8 @@ server.listen(port,ip);
 
 io.on('connection',function(socket){
     socket.on('send message',function(data){
-        var sockets = io.sockets.sockets;
-        sockets.forEach(function(sock){
-        if(sock.id != socket.id)
-        {
-            sock.emit('new message',{msg:data});
-        }    
+        io.emit('new message',{msg:data});
+          
     });
         
     });
