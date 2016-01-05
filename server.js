@@ -8,9 +8,9 @@ server = require('http').createServer(app),
 io = require('socket.io').listen(server);
 
 
-
+app.use('/',express.static('static'));
 app.get('/',function(req,res){    
-    res.sendFile(__dirname +'/client/index.html');
+    res.sendFile(__dirname +'/static/index.html');
 });
 
 server.listen(port,ip);
