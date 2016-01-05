@@ -9,7 +9,6 @@ io = require('socket.io').listen(server);
 
 server.listen(port,ip);
 
-app.get('/',function(req,res){
-    res.sendFile(path.join(__dirname ,'/index.html'));
+app.get('/',function(req,res){    
+    res.sendFile(__dirname +'/index.html');
 });
-
